@@ -1,0 +1,11 @@
+{
+  "name": "@school-calendar/calendar-language",
+  "version": "0.1.0",
+  "description": "Prompt-based extraction of calendar dates, times, durations and recurrence",
+  "type": "module",
+  "exports": "./src/index.js",
+  "files": ["src", "README.md", "REFERENCES.md"],
+  "engines": { "node": ">=18" },
+  "scripts": { "test": "node --test", "check": "node --check src/index.js" },
+  "private": true
+}
