@@ -1,0 +1,54 @@
+name: Publish to npm
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: npm-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: ${{ !github.event.release.prerelease }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.release.tag_name }}
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+      - name: Ensure npm supports trusted publishing
+        run: npm install --global npm@11
+      - name: Validate release tag and package
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          node --input-type=module <<'JS'
+          import assert from 'node:assert/strict';
+          import { readFileSync } from 'node:fs';
+          const pkg = JSON.parse(readFileSync('package.json', 'utf8'));
+          assert.equal(process.env.RELEASE_TAG, `v${pkg.version}`, 'Release tag must match package version');
+          assert.match(pkg.version, /^\d+\.\d+\.\d+$/, 'Only stable versions may publish to latest');
+          assert.notEqual(pkg.private, true, 'Remove private: true after npm package setup');
+          assert.ok(['public', 'restricted'].includes(pkg.publishConfig?.access), 'Set npm package visibility explicitly');
+          JS
+      - run: npm test
+      - run: npm run check
+      - run: npm pack --dry-run
+      - name: Publish using npm trusted publishing
+        run: npm publish
+        env:
+          # npm provenance is not supported for a private GitHub repository.
+          NPM_CONFIG_PROVENANCE: 'false'
