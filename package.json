@@ -1,8 +1,10 @@
 {
   "name": "@hgbink/calendar-intent",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
-  "description": "Prompt-based extraction of calendar dates, times, durations and recurrence",
+  "description": "Dependency-free JavaScript library for LLM-powered extraction and validation of calendar dates, times, durations and recurrence",
+  "homepage": "https://medium.com/@chaobioz/natural-language-scheduling-in-javascript-with-calendar-intent-fc478dc68fa9",
+  "keywords": ["calendar", "scheduling", "natural-language", "llm", "date-parsing", "recurrence", "javascript"],
   "repository": { "type": "git", "url": "git+https://github.com/hgbink/calendar-intent.git" },
   "type": "module",
   "exports": "./src/index.js",
