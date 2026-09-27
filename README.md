@@ -7,6 +7,11 @@ times, durations, and recurrence with an LLM. Designed for School Calendar and
 inspired by [Gautam et al., NAACL 2024](https://aclanthology.org/2024.naacl-short.27/).
 See [REFERENCES.md](./REFERENCES.md) for attribution and differences from the paper.
 
+Read the guide: [Natural-Language Scheduling in JavaScript with Calendar Intent](https://medium.com/@chaobioz/natural-language-scheduling-in-javascript-with-calendar-intent-fc478dc68fa9).
+
+Find the package on [npm](https://www.npmjs.com/package/@hgbink/calendar-intent)
+and explore [School Calendar](https://app.schoolcalendar.me/).
+
 No training, Python runtime, API client, or credentials are bundled. You provide an
 async LLM adapter; the library supplies messages and a JSON schema, then validates
 the returned object. It never saves events or expands recurring schedules.
