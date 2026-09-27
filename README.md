@@ -1,5 +1,7 @@
 # Calendar Intent
 
+Licensed under the [MIT License](./LICENSE).
+
 A small, dependency-free JavaScript library for extracting calendar dates, local
 times, durations, and recurrence with an LLM. Designed for School Calendar and
 inspired by [Gautam et al., NAACL 2024](https://aclanthology.org/2024.naacl-short.27/).
