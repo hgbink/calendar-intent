@@ -3,20 +3,18 @@
 CI runs tests, syntax checks, and a package preview on Node 18, 20, 22, and 24
 for pushes to main and pull requests. There are no dependencies to install.
 
-## One-time npm setup
+## Publishing configuration
 
-Publishing is not active until the following setup is complete:
+The public package is `@hgbink/calendar-intent`. Version `0.1.0` was published
+on 2026-09-27 and verified with a fresh install and an import smoke test.
 
-The package is `@hgbink/calendar-intent` and its npm visibility is public.
+npm trusted publishing is configured and verified for:
 
-1. Authenticate locally with `npm login` and publish the initial package with
-   `npm publish`. Complete any npm account or two-factor authentication prompts.
-2. In that package's npm settings, add a GitHub Actions trusted publisher:
-   - Organization or user: `hgbink`
-   - Repository: `calendar-intent`
-   - Workflow filename: `publish.yml`
-   - Environment: leave empty
-   - Allow direct `npm publish` for automatic releases.
+- GitHub owner: `hgbink`
+- Repository: `calendar-intent`
+- Workflow filename: `publish.yml`
+- Environment: none
+- Direct publishing: allowed
 
 The workflow uses OIDC and does not need an `NPM_TOKEN` repository secret.
 The GitHub repository is private, so npm provenance is disabled.
