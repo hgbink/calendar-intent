@@ -1,5 +1,5 @@
 {
-  "name": "@school-calendar/calendar-language",
+  "name": "@hgbink/calendar-intent",
   "version": "0.1.0",
   "description": "Prompt-based extraction of calendar dates, times, durations and recurrence",
   "repository": { "type": "git", "url": "git+https://github.com/hgbink/calendar-intent.git" },
@@ -8,5 +8,5 @@
   "files": ["src", "README.md", "REFERENCES.md"],
   "engines": { "node": ">=18" },
   "scripts": { "test": "node --test", "check": "node --check src/index.js && node --check src/prompt.js && node --check src/schema.js", "prepublishOnly": "npm test && npm run check" },
-  "private": true
+  "publishConfig": { "access": "public", "registry": "https://registry.npmjs.org/" }
 }

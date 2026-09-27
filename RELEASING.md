@@ -7,12 +7,11 @@ for pushes to main and pull requests. There are no dependencies to install.
 
 Publishing is not active until the following setup is complete:
 
-1. Confirm ownership of the npm scope in `package.json` and choose package visibility.
-2. Remove `private: true` and set `publishConfig.access` to `public` or `restricted`.
-   Restricted packages require an appropriate npm paid plan.
-3. Authenticate locally with `npm login` and publish the initial package with
+The package is `@hgbink/calendar-intent` and its npm visibility is public.
+
+1. Authenticate locally with `npm login` and publish the initial package with
    `npm publish`. Complete any npm account or two-factor authentication prompts.
-4. In that package's npm settings, add a GitHub Actions trusted publisher:
+2. In that package's npm settings, add a GitHub Actions trusted publisher:
    - Organization or user: `hgbink`
    - Repository: `calendar-intent`
    - Workflow filename: `publish.yml`

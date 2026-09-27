@@ -1,4 +1,4 @@
-# Calendar Language
+# Calendar Intent
 
 A small, dependency-free JavaScript library for extracting calendar dates, local
 times, durations, and recurrence with an LLM. Designed for School Calendar and
@@ -12,10 +12,10 @@ the returned object. It never saves events or expands recurring schedules.
 ## Usage
 
 Requires Node.js 18+ or a modern browser/bundler. There are no runtime dependencies.
-The package is private and has not been published.
+Install the public npm package with `npm install @hgbink/calendar-intent`.
 
 ```js
-import { parseSchedule } from './src/index.js'
+import { parseSchedule } from '@hgbink/calendar-intent'
 
 const result = await parseSchedule(
   'Violin tomorrow at 4pm for half an hour',
@@ -47,10 +47,10 @@ the same local validation runs either way. Do not put API keys in browser code.
 A local installation from the School Calendar project can use:
 
 ```sh
-npm install ../calendar-language
+npm install ../calendar-intent
 ```
 
-Then import from `@school-calendar/calendar-language`. Integration is not applied
+Then import from `@hgbink/calendar-intent`. Integration is not applied
 to the app by this project. The existing `/.netlify/functions/magicgenerate` proxy
 can serve as the transport: pass the generated messages to it and return the JSON
 content from `choices[0].message.content`. Map `schema` to each provider's supported
